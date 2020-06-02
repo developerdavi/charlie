@@ -1,0 +1,10 @@
+{
+  "name": "charlie",
+  "version": "1.0.0",
+  "description": "Just a bot to automate bitcoin trading",
+  "main": "src/index.js",
+  "repository": "https://github.com/developerdavi/charlie",
+  "author": "Davi Rodrigues <developer.davi@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
