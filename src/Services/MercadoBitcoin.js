@@ -81,7 +81,64 @@ class MercadoBitcoin {
   static async getOrderBookList(coin_pair) {
     return await MercadoBitcoin.call({
       tapi_method: 'list_orderbook',
+      full: true,
       coin_pair
+    })
+  }
+
+  /**
+   * Used for placing a sell order in MercadoBitcoin
+   * @param {string} coin_pair The coin pair. For example: "BRLBTC"
+   * @param {string} quantity The sell quantity
+   * @param {string} limit_price Minimum sell price
+   */
+  static async placeSellOrder(coin_pair, quantity, limit_price) {
+    return await MercadoBitcoin.call({
+      tapi_method: 'place_sell_order',
+      coin_pair,
+      quantity,
+      limit_price
+    })
+  }
+
+  /**
+   * Used for placing a sell order in MercadoBitcoin
+   * @param {string} coin_pair The coin pair. For example: "BRLBTC"
+   * @param {string} quantity The sell quantity
+   */
+  static async placeMarketSellOrder(coin_pair, quantity) {
+    return await MercadoBitcoin.call({
+      tapi_method: 'place_market_sell_order',
+      coin_pair,
+      quantity
+    })
+  }
+
+  /**
+   * Used for placing a buy order in MercadoBitcoin
+   * @param {string} coin_pair The coin pair. For example: "BRLBTC"
+   * @param {string} quantity The buy quantity
+   * @param {string} limit_price Maximum buy price
+   */
+  static async placeBuyOrder(coin_pair, quantity, limit_price) {
+    return await MercadoBitcoin.call({
+      tapi_method: 'place_buy_order',
+      coin_pair,
+      quantity,
+      limit_price
+    })
+  }
+
+  /**
+   * Used for placing a buy order in MercadoBitcoin
+   * @param {string} coin_pair The coin pair. For example: "BRLBTC"
+   * @param {string} cost The buy quantity
+   */
+  static async placeMarketBuyOrder(coin_pair, cost) {
+    return await MercadoBitcoin.call({
+      tapi_method: 'place_market_buy_order',
+      coin_pair,
+      cost
     })
   }
 
